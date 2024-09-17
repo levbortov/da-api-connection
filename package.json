@@ -4,6 +4,7 @@
   "description": "Учебный проект по созданию кастомных виджетов для OBS с использованием API сервиса Donation Alerts. Цель проекта — изучение интеграции внешних API и создание настраиваемых элементов для трансляций. Включает разработку и тестирование виджетов для отображения донатов и других событий на стримах.",
   "main": "server.js",
   "scripts": {
+    "nodemon": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/levbortov/da-api-connection/issues"
   },
-  "homepage": "https://github.com/levbortov/da-api-connection#readme"
+  "homepage": "https://github.com/levbortov/da-api-connection#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "nodemon": "^3.1.5"
+  }
 }
