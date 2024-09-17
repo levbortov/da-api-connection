@@ -24,7 +24,6 @@ app.get('/auth', (req, res) => {
 
 app.get('/callback', (req, res) => {
     const data = getOauthData(req, res, clientId, clientSecret, redirectUri)
-    console.log(data)
 })
 
 app.listen(port, () => {
