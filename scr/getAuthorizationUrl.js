@@ -3,7 +3,7 @@ function getAuthorizationUrl(clientId, redirectUri, scope) {
     const responseType = 'code'
 
     // Создание URL с параметрами
-    const url = new URL(baseUrl);
+    const url = new URL(baseUrl)
     url.searchParams.append('client_id', clientId)
     url.searchParams.append('redirect_uri', redirectUri)
     url.searchParams.append('response_type', responseType)
@@ -12,4 +12,4 @@ function getAuthorizationUrl(clientId, redirectUri, scope) {
     return url.toString()
 }
 
-module.exports = getAuthorizationUrl;
+module.exports = getAuthorizationUrl

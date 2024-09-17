@@ -1,26 +1,30 @@
 {
-  "name": "da-api-connection",
-  "version": "0.1.0",
-  "description": "Учебный проект по созданию кастомных виджетов для OBS с использованием API сервиса Donation Alerts. Цель проекта — изучение интеграции внешних API и создание настраиваемых элементов для трансляций. Включает разработку и тестирование виджетов для отображения донатов и других событий на стримах.",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/levbortov/da-api-connection.git"
-  },
-  "author": "Lev Bortov",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/levbortov/da-api-connection/issues"
-  },
-  "homepage": "https://github.com/levbortov/da-api-connection#readme",
-  "dependencies": {
-    "axios": "^1.7.7",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "nodemon": "^3.1.5"
-  }
+    "name": "da-api-connection",
+    "version": "0.1.0",
+    "description": "Учебный проект по созданию кастомных виджетов для OBS с использованием API сервиса Donation Alerts. Цель проекта — изучение интеграции внешних API и создание настраиваемых элементов для трансляций. Включает разработку и тестирование виджетов для отображения донатов и других событий на стримах.",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js",
+        "format": "prettier --write \"**/*.{js,json,md}\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/levbortov/da-api-connection.git"
+    },
+    "author": "Lev Bortov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/levbortov/da-api-connection/issues"
+    },
+    "homepage": "https://github.com/levbortov/da-api-connection#readme",
+    "dependencies": {
+        "axios": "^1.7.7",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.0",
+        "nodemon": "^3.1.5"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3"
+    }
 }
