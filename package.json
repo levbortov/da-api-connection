@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/levbortov/da-api-connection#readme",
   "dependencies": {
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "nodemon": "^3.1.5"
