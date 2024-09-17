@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>DA API connection</title>
+</head>
+<body>
+    <h1>Donation Alerts API connection</h1>
+    <p>
+        Учебный проект по созданию кастомных виджетов для OBS с использованием API сервиса Donation Alerts. Цель проекта — изучение интеграции внешних API и создание настраиваемых элементов для трансляций. Включает разработку и тестирование виджетов для отображения донатов и других событий на стримах.
+    </p>
+    <button id="auth-button">Авторизация</button>
+    <script>
+        const authButton = document.getElementById('auth-button')
+        authButton.onclick = function() {
+            window.location.replace("http://https://da-api-connection.vercel.app/auth")
+        }
+    </script>
+</body>
+</html>

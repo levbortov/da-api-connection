@@ -13,9 +13,7 @@ const clientSecret = process.env.CLIENT_SECRET
 const redirectUri = process.env.REDIRECT_URI
 const scope = 'oauth-user-show oauth-goal-subscribe'
 
-app.get('/', (req, res) => {
-    res.send('Donation Alerts API connection')
-})
+app.use(express.static('public'))
 
 app.get('/auth', (req, res) => {
     const authorizationUrl = getAuthorizationUrl(clientId, redirectUri, scope)
