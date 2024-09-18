@@ -41,12 +41,15 @@ app.get('/callback', (req, res) => {
 })
 
 app.get('/profile', (req, res) => {
+    res.send(req.session)
+    /*
     if (!req.session.accessToken) {
         return res.redirect('/auth') // Перенаправление на авторизацию, если токены отсутствуют 🪲https://github.com/levbortov/da-api-connection/issues/1
     }
 
     const token = req.session.accessToken
     return getUser(res, token)
+     */
 })
 
 app.listen(port, () => {
