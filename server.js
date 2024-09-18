@@ -58,9 +58,9 @@ app.get('/profile', async (req, res) => {
     }
 
     const token = req.session.accessToken
-    const user = getUser(res, token)
+    const user = await getUser(res, token)
 
-    res.send(user)
+    res.send(token)
     /*
     🪲https://github.com/levbortov/da-api-connection/issues/1
      */
