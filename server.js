@@ -5,7 +5,7 @@ const session = require('express-session')
 
 const getAuthorizationUrl = require('./scr/getAuthorizationUrl')
 const getOauthData = require('./scr/getOauthData')
-// const getUser = require('./scr/getUser')
+const getUser = require('./scr/getUser')
 
 dotenv.config()
 const app = express()
@@ -53,7 +53,14 @@ app.get('/callback', async (req, res) => {
 })
 
 app.get('/profile', async (req, res) => {
-    res.send('суссия: ' + req.session)
+    if (!req.session.accessToken) {
+        return res.redirect('/auth')
+    }
+
+    const token = req.session.accessToken
+    const user = getUser(res, token)
+
+    res.send(user)
     /*
     🪲https://github.com/levbortov/da-api-connection/issues/1
      */
