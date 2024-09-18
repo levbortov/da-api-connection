@@ -5,7 +5,7 @@ const session = require('express-session')
 
 const getAuthorizationUrl = require('./scr/getAuthorizationUrl')
 const getOauthData = require('./scr/getOauthData')
-const getUser = require('./scr/getUser')
+// const getUser = require('./scr/getUser')
 
 dotenv.config()
 const app = express()
