@@ -11,10 +11,7 @@ import getProfile from './controllers/getProfile.js'
 
 const app = express()
 
-// Получаем путь к текущему файлу
 const __filename = fileURLToPath(import.meta.url)
-
-// Получаем директорию
 const __dirname = path.dirname(__filename)
 
 app.use(express.json())
@@ -30,7 +27,7 @@ app.use(
 )
 
 app.get('/', (req, res) => {
-    res.send('hello?')
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 app.get('/auth', auth)
 app.get('/callback', callback)
