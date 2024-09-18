@@ -5,6 +5,7 @@ const session = require('express-session')
 
 const getAuthorizationUrl = require('./scr/getAuthorizationUrl')
 const getOauthData = require('./scr/getOauthData')
+const getUser = require('./scr/getUser')
 
 dotenv.config()
 const app = express()
@@ -39,14 +40,15 @@ app.get('/callback', (req, res) => {
     res.redirect('/profile')
 })
 
-/* Роут для получения данных пользователя
 app.get('/profile', (req, res) => {
     if (!req.session.accessToken) {
-        return res.redirect('/auth')
+        return res.redirect('/auth') // Перенаправление на авторизацию, если токены отсутствуют
     }
 
     // Добавить возможность для получения данных пользователя
-}) */
+    const token = req.session.accessToken
+    return getUser(res, token)
+})
 
 app.listen(port, () => {
     console.log(`🗄️ приложение запущено на порту ${port}`)
