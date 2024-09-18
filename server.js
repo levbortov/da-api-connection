@@ -49,12 +49,7 @@ app.get('/callback', async (req, res) => {
 app.get('/profile', async (req, res) => {
     res.send('/profile')
     /*
-    if (!req.session.accessToken) {
-        return res.redirect('/auth') // Перенаправление на авторизацию, если токены отсутствуют 🪲https://github.com/levbortov/da-api-connection/issues/1
-    }
-
-    const token = req.session.accessToken
-    return getUser(res, token)
+    🪲https://github.com/levbortov/da-api-connection/issues/1
      */
 })
 
