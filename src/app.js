@@ -29,10 +29,11 @@ app.use(
     })
 )
 
+app.get('/', (req, res) => {
+    res.send('hello?')
+})
 app.get('/auth', auth)
-
 app.get('/callback', callback)
-
 app.get('/profile', getProfile)
 
 export default app
