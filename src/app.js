@@ -3,7 +3,7 @@ import session from 'express-session'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { sessionSecret } from './consfig.js'
+import { sessionSecret } from './config.js'
 
 import auth from './controllers/auth.js'
 import callback from './controllers/callback.js'

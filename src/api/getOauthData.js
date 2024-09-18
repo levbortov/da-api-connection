@@ -1,14 +1,16 @@
 import axios from 'axios'
+import logger from '../logger.js'
 
 async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
     const authorizationCode = req.query.code
+    const headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
 
     if (!authorizationCode) {
-        return res.send('Код авторизации не найден')
+        logger.warn('Код авторизации не найден')
+        return res.send('Не авторизован')
     }
 
     try {
-        // Обмениваем код на токен доступа
         const tokenResponse = await axios.post(
             'https://www.donationalerts.com/oauth/token',
             {
@@ -19,15 +21,13 @@ async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
                 code: authorizationCode,
             },
             {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
+                headers: headers,
             }
         )
-
+        logger.info('OAuth-данные извелчены')
         return tokenResponse.data
     } catch (error) {
-        console.error('Ошибка при обмене кода на токен:', error)
+        logger.error(`Ошибка извлечения OAuth-данных: ${error.message}`)
         throw error
     }
 }

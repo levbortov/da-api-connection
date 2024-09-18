@@ -1,6 +1,7 @@
 import app from './src/app.js'
-import { port } from './src/consfig.js'
+import logger from './src/logger.js'
+import { port } from './src/config.js'
 
 app.listen(port, () => {
-    console.log(`🗄️ приложение запущено на порту ${port}`)
+    logger.info(`🗄️ приложение запущено на порту ${port}`)
 })

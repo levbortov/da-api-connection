@@ -1,14 +1,19 @@
 {
     "name": "da-api-connection",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "description": "Учебный проект по созданию кастомных виджетов для OBS с использованием API сервиса Donation Alerts. Цель проекта — изучение интеграции внешних API и создание настраиваемых элементов для трансляций. Включает разработку и тестирование виджетов для отображения донатов и других событий на стримах.",
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "start": "nodemon server.js",
         "format": "prettier --write \"**/*.{js,json,md}\""
     },
+    "jest": {
+        "testEnvironment": "node",
+        "verbose": true
+    },
+    "testEnvironment": "node",
     "repository": {
         "type": "git",
         "url": "https://github.com/levbortov/da-api-connection.git"
@@ -23,9 +28,11 @@
         "axios": "^1.7.7",
         "dotenv": "^16.4.5",
         "express": "^4.21.0",
-        "express-session": "^1.18.0"
+        "express-session": "^1.18.0",
+        "winston": "^3.14.2"
     },
     "devDependencies": {
+        "jest": "^29.7.0",
         "nodemon": "^3.1.5",
         "prettier": "^3.3.3"
     }

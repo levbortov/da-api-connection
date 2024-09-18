@@ -1,9 +1,16 @@
 import getAuthorizationUrl from '../helpers/getAuthorizationUrl.js'
-import { clientId, redirectUri, scope } from '../consfig.js'
+import { clientId, redirectUri, scope } from '../config.js'
+import logger from '../logger.js'
 
 const auth = async (req, res) => {
-    const authorizationUrl = getAuthorizationUrl(clientId, redirectUri, scope)
-    res.redirect(authorizationUrl)
+    try {
+        const authorizationUrl = getAuthorizationUrl(clientId, redirectUri, scope)
+        res.redirect(authorizationUrl)
+        logger.info('Перенаправлен на URL-адрес авторизации')
+    } catch (error) {
+        logger.error(`Ошибка в контроллере аутентификации: ${error.message}`)
+        res.status(500).send('Произошла ошибка. Пожалуйста, попробуйте позже.')
+    }
 }
 
 export default auth
