@@ -6,6 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
+        "start-nodemon": "nodemon server.js",
         "format": "prettier --write \"**/*.{js,json,md}\""
     },
     "repository": {
@@ -25,6 +26,7 @@
         "express-session": "^1.18.0"
     },
     "devDependencies": {
+        "nodemon": "^3.1.5",
         "prettier": "^3.3.3"
     }
 }
