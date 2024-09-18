@@ -1,7 +1,7 @@
-const axios = require('axios')
+import axios from 'axios'
 
 async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
-    const authorizationCode = req.query.code // Получаем `code` из запроса
+    const authorizationCode = req.query.code
 
     if (!authorizationCode) {
         return res.send('Код авторизации не найден')
@@ -32,4 +32,4 @@ async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
     }
 }
 
-module.exports = getOauthData
+export default getOauthData
