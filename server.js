@@ -58,12 +58,13 @@ app.get('/profile', async (req, res) => {
     }
 
     const token = req.session.accessToken
-    const user = await getUser(res, token)
-
-    res.json(user)
-    /*
-    🪲https://github.com/levbortov/da-api-connection/issues/1
-     */
+    try {
+        const userResponse = await getUser(token) // Изменение для корректного вызова
+        res.send(userResponse.data) // Отправляем данные пользователя
+    } catch (error) {
+        console.error('Ошибка при получении профиля пользователя:', error)
+        res.status(500).send('Не удалось получить данные пользователя')
+    }
 })
 
 app.listen(port, () => {

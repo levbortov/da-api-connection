@@ -1,13 +1,16 @@
 const axios = require('axios')
 
-function getUser(res, token) {
+async function getUser(token) {
     try {
-        return axios.get('https://www.donationalerts.com/api/v1/user/oauth', {
-            headers: { Authorization: `Bearer ${token}` },
-        })
+        return await axios.get(
+            'https://www.donationalerts.com/api/v1/user/oauth',
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
     } catch (error) {
         console.error('Ошибка при получении данных пользователя:', error)
-        res.status(500).send('Ошибка при получении данных пользователя')
+        throw error
     }
 }
 
