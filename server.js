@@ -37,6 +37,7 @@ app.get('/callback', async (req, res) => {
     try {
         const data = await getOauthData(
             req,
+            res,
             clientId,
             clientSecret,
             redirectUri
