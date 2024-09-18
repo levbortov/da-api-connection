@@ -53,7 +53,7 @@ app.get('/callback', async (req, res) => {
 })
 
 app.get('/profile', async (req, res) => {
-    res.send('/profile')
+    res.send('суссия: ' + req.session)
     /*
     🪲https://github.com/levbortov/da-api-connection/issues/1
      */
