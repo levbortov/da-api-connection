@@ -35,13 +35,7 @@ app.get('/auth', async (req, res) => {
 
 app.get('/callback', async (req, res) => {
     try {
-        const data = await getOauthData(
-            req,
-            res,
-            clientId,
-            clientSecret,
-            redirectUri
-        )
+        const data = await getOauthData(req, res, clientId, clientSecret, redirectUri)
 
         req.session.accessToken = data.access_token
         req.session.refreshToken = data.refresh_token
