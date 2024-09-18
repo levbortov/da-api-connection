@@ -34,16 +34,21 @@ app.get('/auth', async (req, res) => {
 })
 
 app.get('/callback', async (req, res) => {
-    const data = await getOauthData(
-        req,
-        res,
-        clientId,
-        clientSecret,
-        redirectUri
-    )
-    req.session.accessToken = data.access_token
-    req.session.refreshToken = data.refresh_token
-    res.redirect('/profile')
+    try {
+        const data = await getOauthData(
+            req,
+            clientId,
+            clientSecret,
+            redirectUri
+        )
+
+        req.session.accessToken = data.access_token
+        req.session.refreshToken = data.refresh_token
+
+        res.redirect('/profile')
+    } catch (error) {
+        res.status(500).send(`Не удалось обменять код на токен: ${error}`)
+    }
 })
 
 app.get('/profile', async (req, res) => {
