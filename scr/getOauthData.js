@@ -28,7 +28,7 @@ async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
         return tokenResponse.data
     } catch (error) {
         console.error('Ошибка при обмене кода на токен:', error)
-        res.status(500).send('Не удалось обменять код на токен')
+        throw error
     }
 }
 
