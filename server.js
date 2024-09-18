@@ -28,19 +28,25 @@ app.use(
     })
 )
 
-app.get('/auth', (req, res) => {
+app.get('/auth', async (req, res) => {
     const authorizationUrl = getAuthorizationUrl(clientId, redirectUri, scope)
     res.redirect(authorizationUrl)
 })
 
-app.get('/callback', (req, res) => {
-    const data = getOauthData(req, res, clientId, clientSecret, redirectUri)
+app.get('/callback', async (req, res) => {
+    const data = await getOauthData(
+        req,
+        res,
+        clientId,
+        clientSecret,
+        redirectUri
+    )
     req.session.accessToken = data.access_token
     req.session.refreshToken = data.refresh_token
     res.redirect('/profile')
 })
 
-app.get('/profile', (req, res) => {
+app.get('/profile', async (req, res) => {
     res.send('/profile')
     /*
     if (!req.session.accessToken) {
