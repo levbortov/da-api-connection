@@ -2,7 +2,7 @@ import winston from 'winston'
 
 // Создание уровня логирования
 const { createLogger, format, transports } = winston
-const { combine, timestamp, json, printf } = format
+const { combine, timestamp, printf } = format
 
 // Формат для вывода логов
 const customFormat = printf(({ level, message, timestamp }) => {
@@ -15,8 +15,11 @@ const logger = createLogger({
     format: combine(timestamp(), customFormat),
     transports: [
         new transports.Console(),
+        /*
+        // Только для работы на локальном хосте
         new transports.File({ filename: 'logs/combined.log' }),
         new transports.File({ filename: 'logs/error.log', level: 'error' }),
+         */
     ],
 })
 
