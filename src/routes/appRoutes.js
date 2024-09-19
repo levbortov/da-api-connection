@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import getUser from '../controllers/getUser.js'
+import ensureAuthenticated from '../helpers/ensureAuthenticated.js'
 
 const router = express.Router()
 
@@ -9,6 +10,6 @@ const getFrontend = (req, res) => {
 }
 
 router.get('/', getFrontend)
-router.get('/user', getUser)
+router.get('/user', ensureAuthenticated, getUser)
 
 export default router

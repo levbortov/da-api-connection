@@ -7,7 +7,8 @@ async function getAuthData(req, res, clientId, clientSecret, redirectUri) {
 
     if (!authorizationCode) {
         logger.warn('Код авторизации не найден')
-        return res.send('Не авторизован')
+        logger.debug('Переадресация на /auth')
+        return res.redirect('/auth')
     }
 
     try {

@@ -2,11 +2,8 @@ import getUserData from '../api/getUserData.js'
 import logger from '../logger.js'
 
 const getUser = async (req, res) => {
-    if (!req.session.accessToken) {
-        return res.redirect('/auth')
-    }
-
     const token = req.session.accessToken
+
     try {
         const userResponse = await getUserData(token)
         res.send(userResponse.data)
