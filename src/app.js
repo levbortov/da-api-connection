@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url'
 
 import { sessionSecret } from './config.js'
 
-import getUser from './controllers/getUser.js'
 import appRoutes from './appRoutes.js'
 import authRoutes from './authRoutes.js'
 
@@ -26,7 +25,5 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(session)
 app.use('/', appRoutes)
 app.use('/auth', authRoutes)
-
-app.get('/user', getUser)
 
 export default app
