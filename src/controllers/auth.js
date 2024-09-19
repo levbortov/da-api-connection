@@ -8,7 +8,7 @@ const auth = async (req, res) => {
         res.redirect(authorizationUrl)
         logger.info('Перенаправлен на URL-адрес авторизации')
     } catch (error) {
-        logger.error(`Ошибка в контроллере аутентификации: ${error.message}`)
+        logger.error(`Ошибка в контроллере авторизации: ${error.message}`)
         res.status(500).send('Произошла ошибка. Пожалуйста, попробуйте позже.')
     }
 }

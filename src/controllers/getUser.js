@@ -1,7 +1,7 @@
 import getUserData from '../api/getUserData.js'
 import logger from '../logger.js'
 
-const getProfile = async (req, res) => {
+const getUser = async (req, res) => {
     if (!req.session.accessToken) {
         return res.redirect('/auth')
     }
@@ -10,11 +10,11 @@ const getProfile = async (req, res) => {
     try {
         const userResponse = await getUserData(token)
         res.send(userResponse.data)
-        logger.info('Извлечены данные профиля пользователя')
+        logger.info('Данные пользователя извелчены')
     } catch (error) {
-        logger.error(`Ошибка в контроллере getProfile: ${error.message}`)
+        logger.error(`Ошибка в контроллере getUser: ${error.message}`)
         res.status(500).send('Произошла ошибка. Пожалуйста, попробуйте позже.')
     }
 }
 
-export default getProfile
+export default getUser

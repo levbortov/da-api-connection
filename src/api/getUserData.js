@@ -9,10 +9,10 @@ async function getUserData(token) {
                 headers: { Authorization: `Bearer ${token}` },
             }
         )
-        logger.info('Данные пользователя извлечены')
+        logger.info('Данные пользователя получены')
         return response
     } catch (error) {
-        logger.error(`Ошибка извлечения данных пользоваетеля: ${error.message}`)
+        logger.error(`Ошибка доставки данных пользоваетеля: ${error.message}`)
         throw error
     }
 }

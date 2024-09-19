@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 
 import { sessionSecret } from './config.js'
 
-import getProfile from './controllers/getProfile.js'
+import getUser from './controllers/getUser.js'
 import appRoutes from './appRoutes.js'
 import authRoutes from './authRoutes.js'
 
@@ -27,6 +27,6 @@ app.use(session)
 app.use('/', appRoutes)
 app.use('/auth', authRoutes)
 
-app.get('/profile', getProfile)
+app.get('/user', getUser)
 
 export default app

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import logger from '../logger.js'
 
-async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
+async function getAuthData(req, res, clientId, clientSecret, redirectUri) {
     const authorizationCode = req.query.code
     const headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
 
@@ -24,12 +24,12 @@ async function getOauthData(req, res, clientId, clientSecret, redirectUri) {
                 headers: headers,
             }
         )
-        logger.info('OAuth-данные извелчены')
+        logger.info('OAuth-данные получены')
         return tokenResponse.data
     } catch (error) {
-        logger.error(`Ошибка извлечения OAuth-данных: ${error.message}`)
+        logger.error(`Ошибка доставки OAuth-данных: ${error.message}`)
         throw error
     }
 }
 
-export default getOauthData
+export default getAuthData
