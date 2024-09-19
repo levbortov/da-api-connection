@@ -2,7 +2,7 @@ import { clientId, clientSecret, redirectUri } from '../config.js'
 import getOauthData from '../api/getOauthData.js'
 import logger from '../logger.js'
 
-const callback = async (req, res) => {
+const authCallback = async (req, res) => {
     try {
         const data = await getOauthData(req, res, clientId, clientSecret, redirectUri)
 
@@ -17,4 +17,4 @@ const callback = async (req, res) => {
     }
 }
 
-export default callback
+export default authCallback
