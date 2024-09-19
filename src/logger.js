@@ -21,11 +21,6 @@ const customFormat = printf(({ level, message, timestamp }) => {
     return `${timestamp} [${level}]: ${message}`
 })
 
-/**
- * Логгер с разными уровнями логирования.
- * @constant
- * @type {winston.Logger}
- */
 const logger = createLogger({
     level: 'info',
     format: combine(timestamp(), customFormat),
