@@ -8,6 +8,7 @@ import logger from '../logger.js'
 
 const authCallback = async (req, res) => {
     try {
+        logger.info('Попытка обменять код на токен')
         req.grantType = 'authorization_code'
         const data = await getAuthData(req, res)
 

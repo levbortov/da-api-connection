@@ -11,6 +11,8 @@ const ensureHaveCode = (req, res, next) => {
         logger.debug('Переадресация на /auth')
         return res.redirect('/auth')
     }
+    logger.info('Код авторизации в наличии')
+    next()
 }
 
 export default ensureHaveCode
