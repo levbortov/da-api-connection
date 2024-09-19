@@ -1,4 +1,9 @@
-import getAuthorizationUrl from '../helpers/getAuthorizationUrl.js'
+/**
+ * Контроллер авторизации.
+ * @module oauth
+ */
+
+import getAuthorizationUrl from '../utils/getAuthorizationUrl.js'
 import { clientId, redirectUri, scope } from '../config.js'
 import logger from '../logger.js'
 

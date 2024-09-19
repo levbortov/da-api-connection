@@ -1,3 +1,8 @@
+/**
+ * Генерация URL для авторизации OAuth.
+ * @module helper
+ */
+
 function getAuthorizationUrl(clientId, redirectUri, scope) {
     const baseUrl = 'https://www.donationalerts.com/oauth/authorize'
     const responseType = 'code'

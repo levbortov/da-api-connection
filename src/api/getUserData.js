@@ -1,3 +1,8 @@
+/**
+ * Запрос на получение данных пользователя через API DonationAlerts.
+ * @module user
+ */
+
 import axios from 'axios'
 import logger from '../logger.js'
 

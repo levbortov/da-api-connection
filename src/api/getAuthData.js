@@ -1,3 +1,8 @@
+/**
+ * Запрос на получение OAuth-токена.
+ * @module oauth
+ */
+
 import axios from 'axios'
 import logger from '../logger.js'
 

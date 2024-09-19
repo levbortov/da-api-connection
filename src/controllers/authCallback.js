@@ -1,3 +1,8 @@
+/**
+ * Контроллер callback’а OAuth авторизации.
+ * @module oauth
+ */
+
 import { clientId, clientSecret, redirectUri } from '../config.js'
 import getAuthData from '../api/getAuthData.js'
 import logger from '../logger.js'

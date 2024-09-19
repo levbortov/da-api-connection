@@ -1,3 +1,8 @@
+/**
+ * Мидлвар-проверка на наличие токена доступа
+ * @module middleware
+ */
+
 import logger from '../logger.js'
 
 const ensureAuthenticated = (req, res, next) => {

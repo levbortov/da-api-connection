@@ -1,3 +1,8 @@
+/**
+ * Контроллер получения данных пользователя.
+ * @module user
+ */
+
 import getUserData from '../api/getUserData.js'
 import logger from '../logger.js'
 
