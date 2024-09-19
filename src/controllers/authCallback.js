@@ -3,13 +3,13 @@
  * @module oauth
  */
 
-import { clientId, clientSecret, redirectUri } from '../config.js'
 import getAuthData from '../api/getAuthData.js'
 import logger from '../logger.js'
 
 const authCallback = async (req, res) => {
     try {
-        const data = await getAuthData(req, res, clientId, clientSecret, redirectUri)
+        req.grantType = 'authorization_code'
+        const data = await getAuthData(req, res)
 
         req.session.accessToken = data.access_token
         req.session.refreshToken = data.refresh_token
@@ -17,7 +17,7 @@ const authCallback = async (req, res) => {
         res.redirect('/user')
         logger.info('Код авторизации был обменян на токены')
     } catch (error) {
-        logger.error(`Ошибка в контроллере коллбека: ${error.message}`)
+        logger.error(`Не удалось обменять код авторизации на токен: ${error.message}`)
         res.status(500).send('Произошла ошибка. Пожалуйста, попробуйте позже.')
     }
 }
