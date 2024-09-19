@@ -17,7 +17,7 @@ const session = exSession({
     secret: sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // В продакшене установить `secure: true`
+    cookie: { secure: false }, // TODO: в продакшене установить `secure: true`
 })
 
 app.use(express.json())
