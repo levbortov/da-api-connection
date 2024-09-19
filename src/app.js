@@ -5,8 +5,8 @@ import { fileURLToPath } from 'url'
 
 import { sessionSecret } from './config.js'
 
-import appRoutes from './appRoutes.js'
-import authRoutes from './authRoutes.js'
+import appRoutes from './routes/appRoutes.js'
+import authRoutes from './routes/authRoutes.js'
 
 const app = express()
 

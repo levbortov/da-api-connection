@@ -1,6 +1,6 @@
 import express from 'express'
-import auth from './controllers/auth.js'
-import authCallback from './controllers/authCallback.js'
+import auth from '../controllers/auth.js'
+import authCallback from '../controllers/authCallback.js'
 
 const router = express.Router()
 

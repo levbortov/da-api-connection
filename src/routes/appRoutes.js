@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import getUser from './controllers/getUser.js'
+import getUser from '../controllers/getUser.js'
 
 const router = express.Router()
 
