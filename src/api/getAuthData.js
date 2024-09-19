@@ -17,13 +17,15 @@ async function getAuthData(req, res) {
         redirect_uri: redirectUri,
     }
 
+    logger.info(`Сессия: ${req.session}`)
+
     if (req.grantType === 'authorization_code') {
         data.code = req.query.code
-        logger.info('Запрос на обмен кода на токен')
+        logger.info('Запрос на обмен кода на токен принят')
     } else if (req.grantType === 'refresh_token') {
         data.refresh_token = req.session.refreshToken
         data.scope = scope
-        logger.info('Запрос на обновление токена')
+        logger.info('Запрос на обновление токена принят')
     } else {
         logger.error(
             `Поступил запрос на получение токена, 
